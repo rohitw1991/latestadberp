@@ -39,18 +39,8 @@ class DocType:
                           #msgprint(a[1])
                           i=i+1
                           validated_receiver_list.append(a[1])
-
-			'''
-			# remove invalid character
-			invalid_char_list = [' ', '+', '-', '(', ')']
-			for x in invalid_char_list:
-				d = d.replace(x, '')
-				
-			validated_receiver_list.append(d)
-			'''
 		if not validated_receiver_list:
 			msgprint("Please enter valid mobile nos", raise_exception=1)
-
 		return validated_receiver_list
 
 
@@ -82,13 +72,13 @@ class DocType:
 
 	def send_sms(self, receiver_list, msg, sender_name = ''):
 		receiver_list = self.validate_receiver_nos(receiver_list)
-
+                
 		arg = {
 			'receiver_list' : receiver_list,
 			'message'		: msg,
 			'sender_name'	: sender_name or self.get_sender_name()
 		}
-
+		
 		if webnotes.conn.get_value('SMS Settings', None, 'sms_gateway_url'):
 			ret = self.send_via_gateway(arg)
 			msgprint(ret)
@@ -97,18 +87,21 @@ class DocType:
 		ss = get_obj('SMS Settings', 'SMS Settings', with_children=1)
 		args = {ss.doc.message_parameter : arg.get('message')}
 		for d in getlist(ss.doclist, 'static_parameter_details'):
+		
 			args[d.parameter] = d.value
 		
 		resp = []
 		for d in arg.get('receiver_list'):
 			args[ss.doc.receiver_parameter] = d
 			resp.append(self.send_request(ss.doc.sms_gateway_url, args))
+			#msgprint(resp)
 
 		return resp
 
 	# Send Request
 	# =========================================================
 	def send_request(self, gateway_url, args):
+		#msgprint(args)
 		import httplib, urllib
 		server, api_url = self.scrub_gateway_url(gateway_url)
 		conn = httplib.HTTPConnection(server)  # open connection

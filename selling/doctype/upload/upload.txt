@@ -2,7 +2,7 @@
  {
   "creation": "2013-07-10 19:53:48", 
   "docstatus": 0, 
-  "modified": "2013-07-10 20:39:59", 
+  "modified": "2013-07-08 15:01:26", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -44,15 +44,72 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "sbr1", 
+  "fieldname": "sb2", 
   "fieldtype": "Section Break", 
   "label": "Download"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "cus", 
+  "fieldtype": "Link", 
+  "label": "Contact List", 
+  "options": "Contact List"
+ }, 
+ {
+  "depends_on": "eval:doc.cus=='All Customer Contact'", 
+  "doctype": "DocField", 
+  "fieldname": "customer", 
+  "fieldtype": "Link", 
+  "label": "Customer", 
+  "options": "Customer"
+ }, 
+ {
+  "depends_on": "eval:doc.cus=='All Supplier Contact'", 
+  "doctype": "DocField", 
+  "fieldname": "supplier", 
+  "fieldtype": "Link", 
+  "label": "Supplier", 
+  "options": "Supplier"
+ }, 
+ {
+  "depends_on": "eval:doc.cus=='All Employee (Active)'", 
+  "doctype": "DocField", 
+  "fieldname": "department", 
+  "fieldtype": "Select", 
+  "label": "Department", 
+  "options": "link:Department"
+ }, 
+ {
+  "depends_on": "eval:doc.cus=='All Employee (Active)'", 
+  "doctype": "DocField", 
+  "fieldname": "branch", 
+  "fieldtype": "Select", 
+  "label": "Branch", 
+  "options": "link:Branch"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "down", 
+  "fieldtype": "Button", 
+  "label": "Download"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sb1", 
+  "fieldtype": "Section Break", 
+  "label": "Upload"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "nam", 
   "fieldtype": "Data", 
   "label": "Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lis11", 
+  "fieldtype": "Data", 
+  "label": "List"
  }, 
  {
   "description": "Type of document to rename.", 

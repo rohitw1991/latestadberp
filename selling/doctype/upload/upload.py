@@ -3,10 +3,12 @@
 from __future__ import unicode_literals
 from webnotes.model.doc import Document
 import webnotes
+from webnotes.utils import cstr
 from webnotes import _
 sql = webnotes.conn.sql
 from webnotes.utils import cstr
 msgprint = webnotes.msgprint
+sql = webnotes.conn.sql
 class DocType:
 	def __init__(self, d, dl):
 		self.doc, self.doclist = d, dl
@@ -50,8 +52,8 @@ def upload(select_doctype=None, rows=None):
 	i2=0
 	i3=0
 	i4=0
-
       
+
         if cstr(sele1)=='':
           res=sql("select name from `tabContact List` where name not in('All Contact','All Customer Contact','All Employee (Active)','All Lead (Open)','All Sales Partner Contact','All Sales Person','All Supplier Contact') and name='"+sele+"'")
           res1=res and res[0][0] or ''
@@ -177,7 +179,6 @@ def get_template():
 "5. Put the account head as Data label each in a new column"
 "6. Put the Debit amount as +ve and Credit amount as -ve"'''
                 columns = '''"Naming Series","Voucher Type"'''
-
         webnotes.response['result'] = '''%(columns)s
 '''% {
                 "template_type": template_type,
