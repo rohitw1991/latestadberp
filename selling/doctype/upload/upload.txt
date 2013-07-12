@@ -1,0 +1,137 @@
+[
+ {
+  "creation": "2013-06-20 08:31:58", 
+  "docstatus": 0, 
+  "modified": "2013-07-08 15:01:26", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "allow_attach": 0, 
+  "allow_email": 1, 
+  "allow_print": 1, 
+  "doctype": "DocType", 
+  "hide_heading": 0, 
+  "hide_toolbar": 1, 
+  "issingle": 1, 
+  "max_attachments": 1, 
+  "module": "Selling", 
+  "name": "__common__"
+ }, 
+ {
+  "doctype": "DocField", 
+  "name": "__common__", 
+  "parent": "Upload", 
+  "parentfield": "fields", 
+  "parenttype": "DocType", 
+  "permlevel": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "name": "__common__", 
+  "parent": "Upload", 
+  "parentfield": "permissions", 
+  "parenttype": "DocType", 
+  "permlevel": 0, 
+  "read": 1, 
+  "role": "Administrator", 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocType", 
+  "name": "Upload"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sb2", 
+  "fieldtype": "Section Break", 
+  "label": "Download"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "cus", 
+  "fieldtype": "Link", 
+  "label": "Contact List", 
+  "options": "Contact List"
+ }, 
+ {
+  "depends_on": "eval:doc.cus=='All Customer Contact'", 
+  "doctype": "DocField", 
+  "fieldname": "customer", 
+  "fieldtype": "Link", 
+  "label": "Customer", 
+  "options": "Customer"
+ }, 
+ {
+  "depends_on": "eval:doc.cus=='All Supplier Contact'", 
+  "doctype": "DocField", 
+  "fieldname": "supplier", 
+  "fieldtype": "Link", 
+  "label": "Supplier", 
+  "options": "Supplier"
+ }, 
+ {
+  "depends_on": "eval:doc.cus=='All Employee (Active)'", 
+  "doctype": "DocField", 
+  "fieldname": "department", 
+  "fieldtype": "Select", 
+  "label": "Department", 
+  "options": "link:Department"
+ }, 
+ {
+  "depends_on": "eval:doc.cus=='All Employee (Active)'", 
+  "doctype": "DocField", 
+  "fieldname": "branch", 
+  "fieldtype": "Select", 
+  "label": "Branch", 
+  "options": "link:Branch"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "down", 
+  "fieldtype": "Button", 
+  "label": "Download"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sb1", 
+  "fieldtype": "Section Break", 
+  "label": "Upload"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "nam", 
+  "fieldtype": "Data", 
+  "label": "Name"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "lis11", 
+  "fieldtype": "Data", 
+  "label": "List"
+ }, 
+ {
+  "description": "Type of document to rename.", 
+  "doctype": "DocField", 
+  "fieldname": "select_doctype", 
+  "fieldtype": "Select", 
+  "hidden": 1, 
+  "label": "Select DocType"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "upload_html", 
+  "fieldtype": "HTML", 
+  "label": "Upload HTML"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "rename_log", 
+  "fieldtype": "HTML", 
+  "label": "Rename Log"
+ }, 
+ {
+  "doctype": "DocPerm"
+ }
+]
