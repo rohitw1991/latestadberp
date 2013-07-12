@@ -1,8 +1,8 @@
 [
  {
-  "creation": "2013-06-20 08:31:58", 
+  "creation": "2013-07-10 19:53:48", 
   "docstatus": 0, 
-  "modified": "2013-06-20 08:44:26", 
+  "modified": "2013-07-10 20:39:59", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -41,6 +41,12 @@
  {
   "doctype": "DocType", 
   "name": "Upload"
+ }, 
+ {
+  "doctype": "DocField", 
+  "fieldname": "sbr1", 
+  "fieldtype": "Section Break", 
+  "label": "Download"
  }, 
  {
   "doctype": "DocField", 
