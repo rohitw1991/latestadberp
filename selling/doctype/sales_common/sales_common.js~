@@ -301,7 +301,7 @@ cur_frm.cscript.item_code = function(doc, cdt, cdn) {
 			
 		}
 	}
-	/*if(d.item_code)
+	if(d.item_code)
 	{
 		wn.call({
     method:"webnotes.client.get_value",
@@ -326,7 +326,7 @@ cur_frm.cscript.item_code = function(doc, cdt, cdn) {
        })
 	
 
-	}*/
+	}
 	
 	if(cur_frm.cscript.custom_item_code){
 		cur_frm.cscript.custom_item_code(doc, cdt, cdn);

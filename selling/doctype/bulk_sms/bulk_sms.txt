@@ -1,8 +1,8 @@
 [
  {
-  "creation": "2013-04-25 10:29:33", 
+  "creation": "2013-07-11 16:03:45", 
   "docstatus": 0, 
-  "modified": "2013-06-28 06:54:36", 
+  "modified": "2013-07-11 16:03:45", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -23,7 +23,7 @@
  {
   "doctype": "DocField", 
   "name": "__common__", 
-  "parent": "SMS Center", 
+  "parent": "Bulk SMS", 
   "parentfield": "fields", 
   "parenttype": "DocType", 
   "permlevel": 0
@@ -32,7 +32,7 @@
   "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
-  "parent": "SMS Center", 
+  "parent": "Bulk SMS", 
   "parentfield": "permissions", 
   "parenttype": "DocType", 
   "permlevel": 0, 
@@ -44,21 +44,13 @@
  }, 
  {
   "doctype": "DocType", 
-  "name": "SMS Center"
+  "name": "Bulk SMS"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "column_break1", 
   "fieldtype": "Column Break", 
   "width": "50%"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "send_to", 
-  "fieldtype": "Select", 
-  "hidden": 1, 
-  "label": "Send To", 
-  "options": "link:Contact List"
  }, 
  {
   "doctype": "DocField", 

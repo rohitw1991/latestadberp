@@ -1,8 +1,8 @@
 [
  {
-  "creation": "2013-04-09 11:43:55", 
+  "creation": "2013-06-06 11:54:50", 
   "docstatus": 0, 
-  "modified": "2013-05-09 13:31:00", 
+  "modified": "2013-07-12 09:31:27", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -36,19 +36,12 @@
   "permlevel": 0
  }, 
  {
-  "amend": 1, 
-  "cancel": 1, 
-  "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
   "parent": "Stock Entry", 
   "parentfield": "permissions", 
   "parenttype": "DocType", 
-  "permlevel": 0, 
-  "read": 1, 
-  "report": 1, 
-  "submit": 1, 
-  "write": 1
+  "read": 1
  }, 
  {
   "doctype": "DocType", 
@@ -628,19 +621,52 @@
   "search_index": 0
  }, 
  {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
   "doctype": "DocPerm", 
-  "role": "Material User"
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Material Manager", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Material User", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Manufacturing User", 
+  "submit": 1, 
+  "write": 1
+ }, 
+ {
+  "amend": 1, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Manufacturing Manager", 
+  "submit": 1, 
+  "write": 1
  }, 
  {
   "doctype": "DocPerm", 
-  "role": "Manufacturing User"
- }, 
- {
-  "doctype": "DocPerm", 
-  "role": "Manufacturing Manager"
- }, 
- {
-  "doctype": "DocPerm", 
-  "role": "Material Manager"
+  "permlevel": 1, 
+  "role": "All"
  }
 ]

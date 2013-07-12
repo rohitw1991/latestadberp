@@ -2,9 +2,6 @@ cur_frm.cscript.refresh = function(doc) {
 	cur_frm.cscript.setup_upload();	
 }
 
-cur_frm.cscript.select_doctype = function() {
-	cur_frm.cscript.setup_upload();
-}
 cur_frm.cscript.nam= function() {
 	cur_frm.cscript.setup_upload();
 }

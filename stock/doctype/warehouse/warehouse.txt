@@ -1,8 +1,8 @@
 [
  {
-  "creation": "2013-03-07 18:50:32", 
+  "creation": "2013-06-06 11:54:50", 
   "docstatus": 0, 
-  "modified": "2013-03-11 17:58:45", 
+  "modified": "2013-07-12 09:05:32", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -30,9 +30,7 @@
   "parent": "Warehouse", 
   "parentfield": "permissions", 
   "parenttype": "DocType", 
-  "read": 1, 
-  "report": 1, 
-  "submit": 0
+  "read": 1
  }, 
  {
   "doctype": "DocType", 
@@ -215,28 +213,13 @@
  }, 
  {
   "amend": 0, 
-  "cancel": 1, 
-  "create": 1, 
-  "doctype": "DocPerm", 
-  "permlevel": 0, 
-  "role": "Material Master Manager", 
-  "write": 1
- }, 
- {
-  "cancel": 1, 
-  "create": 1, 
-  "doctype": "DocPerm", 
-  "permlevel": 0, 
-  "role": "System Manager", 
-  "write": 1
- }, 
- {
-  "amend": 0, 
   "cancel": 0, 
   "create": 0, 
   "doctype": "DocPerm", 
-  "permlevel": 0, 
-  "role": "Material Manager", 
+  "permlevel": 2, 
+  "report": 1, 
+  "role": "Material User", 
+  "submit": 0, 
   "write": 0
  }, 
  {
@@ -245,7 +228,9 @@
   "create": 0, 
   "doctype": "DocPerm", 
   "permlevel": 0, 
+  "report": 1, 
   "role": "Material User", 
+  "submit": 0, 
   "write": 0
  }, 
  {
@@ -254,7 +239,57 @@
   "create": 0, 
   "doctype": "DocPerm", 
   "permlevel": 2, 
-  "role": "System Manager", 
+  "report": 1, 
+  "role": "Material Manager", 
+  "submit": 0, 
+  "write": 0
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Material Manager", 
+  "submit": 0, 
+  "write": 0
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "Material Master Manager", 
+  "submit": 0, 
   "write": 1
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "report": 1, 
+  "role": "System Manager", 
+  "submit": 0, 
+  "write": 1
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "permlevel": 2, 
+  "report": 1, 
+  "role": "System Manager", 
+  "submit": 0, 
+  "write": 1
+ }, 
+ {
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "All"
  }
 ]
