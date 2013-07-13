@@ -1034,13 +1034,6 @@
   "write": 1
  }, 
  {
-  "doctype": "DocPerm", 
-  "role": "Accounts User"
- }, 
- {
-  "doctype": "DocPerm", 
-  "match": "customer", 
-  "role": "Customer"
   "amend": 0, 
   "cancel": 0, 
   "create": 0, 

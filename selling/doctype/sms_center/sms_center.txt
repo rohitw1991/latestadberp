@@ -1,8 +1,8 @@
 [
  {
-  "creation": "2013-04-25 10:29:33", 
+  "creation": "2013-07-10 19:53:47", 
   "docstatus": 0, 
-  "modified": "2013-06-21 11:06:27", 
+  "modified": "2013-07-13 12:31:58", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -100,14 +100,6 @@
   "options": "link:Branch"
  }, 
  {
-  "depends_on": "eval:doc.cus=='All Sales Partner Contact'", 
-  "doctype": "DocField", 
-  "fieldname": "sales_partner", 
-  "fieldtype": "Link", 
-  "label": "Sales Partner", 
-  "options": "Sales Partner"
- }, 
- {
   "doctype": "DocField", 
   "fieldname": "create_receiver_list", 
   "fieldtype": "Button", 
@@ -161,17 +153,6 @@
   "fieldname": "upd", 
   "fieldtype": "Button", 
   "label": "Download/Upload"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "av", 
-  "fieldtype": "HTML"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "refresh1", 
-  "fieldtype": "Button", 
-  "label": "Refresh"
  }, 
  {
   "doctype": "DocField", 
