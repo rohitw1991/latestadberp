@@ -1,8 +1,8 @@
 [
  {
-  "creation": "2013-06-20 08:31:58", 
+  "creation": "2013-07-10 19:53:48", 
   "docstatus": 0, 
-  "modified": "2013-07-08 15:01:26", 
+  "modified": "2013-07-13 12:29:31", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -44,7 +44,7 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "sb2", 
+  "fieldname": "sbr2", 
   "fieldtype": "Section Break", 
   "label": "Download"
  }, 
@@ -72,7 +72,7 @@
   "options": "Supplier"
  }, 
  {
-  "depends_on": "eval:doc.cus=='All Employee (Active)'", 
+  "depends_on": "eval:doc.cus=='All Employee (Active)", 
   "doctype": "DocField", 
   "fieldname": "department", 
   "fieldtype": "Select", 
@@ -80,7 +80,7 @@
   "options": "link:Department"
  }, 
  {
-  "depends_on": "eval:doc.cus=='All Employee (Active)'", 
+  "depends_on": "eval:doc.cus=='All Employee (Active)", 
   "doctype": "DocField", 
   "fieldname": "branch", 
   "fieldtype": "Select", 
@@ -100,16 +100,19 @@
   "label": "Upload"
  }, 
  {
+  "description": "Enter Name To Create New List", 
   "doctype": "DocField", 
   "fieldname": "nam", 
   "fieldtype": "Data", 
   "label": "Name"
  }, 
  {
+  "description": "Enter Existing List Name To Update List", 
   "doctype": "DocField", 
   "fieldname": "lis11", 
-  "fieldtype": "Data", 
-  "label": "List"
+  "fieldtype": "Link", 
+  "label": "List", 
+  "options": "Contact List"
  }, 
  {
   "description": "Type of document to rename.", 

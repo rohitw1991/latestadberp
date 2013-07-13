@@ -40,7 +40,7 @@ class DocType:
 
   '''
   def create_receiver_list(self):
-    rec, where_clause = '', '' 
+    rec, where_clause = '', ''   
     if self.doc.cus == 'All Customer Contact':
       where_clause = self.doc.customer and " and customer = '%s'" % self.doc.customer or " and ifnull(is_customer, 0) = 1"
     if self.doc.cus == 'All Supplier Contact':
@@ -106,19 +106,18 @@ class DocType:
   '''
 
   def send_sms(self):
-
-    receiver_list = self.get_receiver_nos()
-    if self.doc.chhk==1:
-      if receiver_list:
-        for z in range(0,len(receiver_list)-1):
-          a=cstr(receiver_list[z]).split('-')
-          d1="Hi "+cstr(a[0])+" "+self.doc.message
-        msgprint(get_obj('SMS Control', 'SMS Control').send_sms(receiver_list, cstr(d1)))
+      receiver_list = self.get_receiver_nos()
+      if self.doc.chhk==1:
+        if receiver_list:
+          for z in range(0,len(receiver_list)-1):
+            a=cstr(receiver_list[z]).split('-')
+            d1="Hi "+cstr(a[0])+" "+self.doc.message
+          msgprint(get_obj('SMS Control', 'SMS Control').send_sms(receiver_list, cstr(d1)))
+        else:
+          msgprint("Receive List Is Empty")
       else:
-	msgprint("Receive List Is Empty")
-    else:
-      if receiver_list:
-        msgprint(get_obj('SMS Control', 'SMS Control').send_sms(receiver_list, cstr(self.doc.message)))
-      else:
-        msgprint("Receive List Is Empty")
+        if receiver_list:
+          msgprint(get_obj('SMS Control', 'SMS Control').send_sms(receiver_list, cstr(self.doc.message)))
+        else:
+          msgprint("Receive List Is Empty")
 

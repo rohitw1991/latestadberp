@@ -33,14 +33,12 @@ class DocType:
 	def validate_receiver_nos(self,receiver_list):
 		validated_receiver_list = []
 		i=1
-		
 		for d in receiver_list:
-			while i<len(receiver_list):
-		          a=cstr(d).split('-')
-		       	  #msgprint(a[1])
-			  i=i+1	
-			  validated_receiver_list.append(a[1])
-                        
+                        while i<len(receiver_list):
+                          a=cstr(d).split('-')
+                          #msgprint(a[1])
+                          i=i+1
+                          validated_receiver_list.append(a[1])
 		if not validated_receiver_list:
 			msgprint("Please enter valid mobile nos", raise_exception=1)
 		return validated_receiver_list
