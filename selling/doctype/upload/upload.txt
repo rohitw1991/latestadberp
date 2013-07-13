@@ -72,7 +72,7 @@
   "options": "Supplier"
  }, 
  {
-  "depends_on": "eval:doc.cus=='All Employee (Active)", 
+  "depends_on": "eval:doc.cus=='All Employee (Active)'", 
   "doctype": "DocField", 
   "fieldname": "department", 
   "fieldtype": "Select", 
@@ -80,7 +80,7 @@
   "options": "link:Department"
  }, 
  {
-  "depends_on": "eval:doc.cus=='All Employee (Active)", 
+  "depends_on": "eval:doc.cus=='All Employee (Active)'", 
   "doctype": "DocField", 
   "fieldname": "branch", 
   "fieldtype": "Select", 
