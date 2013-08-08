@@ -53,7 +53,6 @@ def upload(select_doctype=None, rows=None):
 	i3=0
 	i4=0
       
-
         if cstr(sele1)=='':
           res=sql("select name from `tabContact List` where name not in('All Contact','All Customer Contact','All Employee (Active)','All Lead (Open)','All Sales Partner Contact','All Sales Person','All Supplier Contact') and name='"+sele+"'")
           res1=res and res[0][0] or ''
@@ -70,12 +69,14 @@ def upload(select_doctype=None, rows=None):
          
           for z4 in range(1,lengt1-1):
             if(gg1.lower()==s1[z4].lower()):
+	      webnotes.msgprint("Duplicate subscriber found for "+s[z4]+"")
               return "Duplicate Subscriber found for "+s[z4]+""
 
           for z5 in range(1,lengt1):
             sd1=s1[z5]
             for z6 in range(z5+1,len(s1)):
               if(sd1.lower()==t1[z6].lower()):
+		webnotes.msgprint("Duplicate subscriber found for "+s[z5]+"")
                 return "Duplicate subscriber found for "+s[z5]+""
           sm=Document('Contact List')
           sm.name=sele
@@ -88,11 +89,13 @@ def upload(select_doctype=None, rows=None):
               sms.parent=sele
               sms.save(new=1)
             i4=i4+1
+	  webnotes.msgprint(""+cstr(sele)+" is Updated Successfully.!")
           return ""+cstr(sele)+" is Updated Successfully.!"
         else:
           re1=sql("select name from `tabContact List` where name not in('All Contact','All Customer Contact','All Employee (Active)','All Lead (Open)','All Sales Partner Contact','All Sales Person','All Supplier Contact') and name='"+sele1+"'")
           re2=re1 and re1[0][0] or ''
           if re2:
+	    webnotes.msgprint(""+cstr(sele1)+" is Already Exist.")
             return ""+cstr(sele1)+" is Already Exist." 
           for r3 in rows:
             s.append(r3[0])
@@ -103,12 +106,14 @@ def upload(select_doctype=None, rows=None):
 
           for z2 in range(1,lengt-1):
             if(gg.lower()==s[z2].lower()):
+	      webnotes.msgprint("Duplicate subscriber found for "+s[z2]+"")
               return "Duplicate Subscriber found for "+s[z2]+""
 
           for z1 in range(1,lengt):
             sd1=s[z1]
             for z3 in range(z1+1,len(s)):
               if(sd1.lower()==t[z3].lower()):
+		webnotes.msgprint("Duplicate subscriber found for "+s[z1]+"")
                 return "Duplicate subscriber found for "+s[z1]+""
 	  sm1=Document('Contact List')
 	  sm1.name=sele1
@@ -121,7 +126,8 @@ def upload(select_doctype=None, rows=None):
 	      sms1.parent=sele1
 	      sms1.save(new=1)    
 	    i2=i2+1  
-	  return ""+cstr(sele1)+" is created Successfully.!"
+	  webnotes.msgprint(""+cstr(sele1)+" is Uploaded Successfully.!")
+	  return "Done"
         
 @webnotes.whitelist()
 def get_template():

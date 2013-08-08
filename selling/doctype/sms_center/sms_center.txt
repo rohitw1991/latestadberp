@@ -1,8 +1,8 @@
 [
  {
-  "creation": "2013-07-10 19:53:47", 
+  "creation": "2013-01-10 16:34:22", 
   "docstatus": 0, 
-  "modified": "2013-07-05 14:55:36", 
+  "modified": "2013-08-08 15:10:05", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -38,7 +38,7 @@
   "parenttype": "DocType", 
   "permlevel": 0, 
   "read": 1, 
-  "report": 0, 
+  "report": 1, 
   "role": "System Manager", 
   "submit": 0, 
   "write": 1
@@ -59,7 +59,7 @@
   "fieldtype": "Select", 
   "hidden": 1, 
   "label": "Send To", 
-  "options": "link:Contact List"
+  "options": "\nAll Contact\nAll Customer Contact\nAll Supplier Contact\nAll Sales Partner Contact\nAll Lead (Open)\nAll Employee (Active)\nAll Sales Person"
  }, 
  {
   "doctype": "DocField", 
@@ -141,30 +141,9 @@
  }, 
  {
   "doctype": "DocField", 
-  "fieldname": "a", 
-  "fieldtype": "HTML"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "v", 
-  "fieldtype": "HTML"
- }, 
- {
-  "doctype": "DocField", 
   "fieldname": "upd", 
   "fieldtype": "Button", 
   "label": "Download/Upload"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "av", 
-  "fieldtype": "HTML"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "refresh1", 
-  "fieldtype": "Button", 
-  "label": "Refresh"
  }, 
  {
   "doctype": "DocPerm"

@@ -5,14 +5,10 @@ cur_frm.cscript.refresh = function(doc) {
 cur_frm.cscript.nam= function() {
 	cur_frm.cscript.setup_upload();
 	cur_frm.doc.lis11=''
-	refresh_field("lis11");
-
 }
 cur_frm.cscript.lis11= function() {
         cur_frm.cscript.setup_upload();
        cur_frm.doc.nam=''
-        refresh_field("nam");
-
 }
 
 cur_frm.cscript.setup_upload = function() {
@@ -45,15 +41,12 @@ cur_frm.cscript.setup_upload = function() {
 			nam2:cur_frm.doc.nam
 		},
 		sample_url: "e.g. http://example.com/somefile.csv",
-		callback: function(r){	
-			alert(r);
+		callback: function(r){
+			console.log("return value")	
+			console.log(r.message);
 			cur_frm.doc.lis11=''
-        refresh_field("lis11");
         cur_frm.doc.nam=''
-        refresh_field("nam");		
        cur_frm.doc.cus=''
-        refresh_field("cus");
-
 		}
 	});
 	
