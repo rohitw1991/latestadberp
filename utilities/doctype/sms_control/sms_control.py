@@ -23,7 +23,6 @@ class DocType:
 		for d in receiver_list:
                         while i<len(receiver_list):
                           a=cstr(d).split('-')
-                          #msgprint(a[1])
                           i=i+1
                           validated_receiver_list.append(a[1])
 		if not validated_receiver_list:
