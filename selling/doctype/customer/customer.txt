@@ -1,6 +1,6 @@
 [
  {
-  "creation": "2013-06-11 14:26:44", 
+  "creation": "2013-06-06 11:54:42", 
   "docstatus": 0, 
   "modified": "2013-07-22 12:47:19", 
   "modified_by": "Administrator", 
@@ -31,7 +31,8 @@
   "parent": "Customer", 
   "parentfield": "permissions", 
   "parenttype": "DocType", 
-  "read": 1
+  "read": 1, 
+  "report": 1
  }, 
  {
   "doctype": "DocType", 
@@ -351,18 +352,42 @@
  {
   "amend": 0, 
   "cancel": 0, 
-  "create": 1, 
-  "doctype": "DocPerm", 
-  "permlevel": 0, 
-  "report": 1, 
-  "role": "Sales User", 
-  "submit": 0, 
-  "write": 1
- }, 
- {
+  "create": 0, 
   "doctype": "DocPerm", 
   "permlevel": 1, 
-  "role": "Sales User"
+  "role": "Sales Manager", 
+  "submit": 0, 
+  "write": 0
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "role": "Sales Manager", 
+  "submit": 0, 
+  "write": 0
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "Sales User", 
+  "submit": 0, 
+  "write": 0
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "role": "Sales User", 
+  "submit": 0, 
+  "write": 0
  }, 
  {
   "amend": 0, 
@@ -370,15 +395,65 @@
   "create": 1, 
   "doctype": "DocPerm", 
   "permlevel": 0, 
-  "report": 1, 
   "role": "Sales Master Manager", 
   "submit": 0, 
   "write": 1
  }, 
  {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 0, 
   "doctype": "DocPerm", 
   "permlevel": 1, 
   "role": "Sales Master Manager", 
+  "submit": 0, 
+  "write": 0
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "permlevel": 2, 
+  "role": "Accounts Manager", 
+  "submit": 0, 
+  "write": 1
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "permlevel": 2, 
+  "role": "All", 
+  "submit": 0, 
+  "write": 0
+ }, 
+ {
+  "cancel": 1, 
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "role": "Accounts Manager", 
+  "submit": 0, 
+  "write": 1
+ }, 
+ {
+  "amend": 0, 
+  "cancel": 0, 
+  "create": 0, 
+  "doctype": "DocPerm", 
+  "permlevel": 1, 
+  "role": "All", 
+  "submit": 0, 
+  "write": 0
+ }, 
+ {
+  "create": 1, 
+  "doctype": "DocPerm", 
+  "permlevel": 0, 
+  "role": "Administrator", 
+  "submit": 1, 
   "write": 1
  }
 ]

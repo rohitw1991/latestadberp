@@ -1,8 +1,8 @@
 [
  {
-  "creation": "2013-07-10 19:53:47", 
+  "creation": "2013-07-11 16:03:45", 
   "docstatus": 0, 
-  "modified": "2013-07-05 14:55:36", 
+  "modified": "2013-07-11 16:03:45", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -14,7 +14,6 @@
   "doctype": "DocType", 
   "hide_heading": 0, 
   "hide_toolbar": 0, 
-  "icon": "icon-mobile-phone", 
   "in_create": 0, 
   "issingle": 1, 
   "module": "Selling", 
@@ -24,7 +23,7 @@
  {
   "doctype": "DocField", 
   "name": "__common__", 
-  "parent": "SMS Center", 
+  "parent": "Bulk SMS", 
   "parentfield": "fields", 
   "parenttype": "DocType", 
   "permlevel": 0
@@ -33,7 +32,7 @@
   "create": 1, 
   "doctype": "DocPerm", 
   "name": "__common__", 
-  "parent": "SMS Center", 
+  "parent": "Bulk SMS", 
   "parentfield": "permissions", 
   "parenttype": "DocType", 
   "permlevel": 0, 
@@ -45,21 +44,13 @@
  }, 
  {
   "doctype": "DocType", 
-  "name": "SMS Center"
+  "name": "Bulk SMS"
  }, 
  {
   "doctype": "DocField", 
   "fieldname": "column_break1", 
   "fieldtype": "Column Break", 
   "width": "50%"
- }, 
- {
-  "doctype": "DocField", 
-  "fieldname": "send_to", 
-  "fieldtype": "Select", 
-  "hidden": 1, 
-  "label": "Send To", 
-  "options": "link:Contact List"
  }, 
  {
   "doctype": "DocField", 
@@ -99,6 +90,14 @@
   "fieldtype": "Select", 
   "label": "Branch", 
   "options": "link:Branch"
+ }, 
+ {
+  "depends_on": "eval:doc.cus=='All Sales Partner Contact'", 
+  "doctype": "DocField", 
+  "fieldname": "sales_partner", 
+  "fieldtype": "Link", 
+  "label": "Sales Partner", 
+  "options": "Sales Partner"
  }, 
  {
   "doctype": "DocField", 

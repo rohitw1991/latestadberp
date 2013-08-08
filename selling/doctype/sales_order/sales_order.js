@@ -154,6 +154,40 @@ cur_frm.fields_dict['project_name'].get_query = function(doc, cdt, cdn) {
 	}
 }
 
+cur_frm.cscript['Make Delivery Note'] = function() {
+	var doc = cur_frm.doc;
+	if (doc.docstatus == 1) { 
+	n = wn.model.make_new_doc_and_get_name("Delivery Note");
+	$c('dt_map', args={
+					'docs':wn.model.compress([locals["Delivery Note"][n]]),
+					'from_doctype':'Sales Order',
+					'to_doctype':'Delivery Note',
+					'from_docname':doc.name,
+		'from_to_list':"[['Sales Order', 'Delivery Note'], ['Sales Order Item', 'Delivery Note Item'],['Sales Taxes and Charges','Sales Taxes and Charges'],['Sales Team','Sales Team']]"
+	}
+	, function(r,rt) {
+		loaddoc("Delivery Note", n);
+		}
+		);
+	}
+}
+
+cur_frm.cscript['Make Sales Invoice'] = function() {
+	var doc = cur_frm.doc;
+
+	n = wn.model.make_new_doc_and_get_name('Sales Invoice');
+	$c('dt_map', args={
+		'docs':wn.model.compress([locals['Sales Invoice'][n]]),
+		'from_doctype':doc.doctype,
+		'to_doctype':'Sales Invoice',
+		'from_docname':doc.name,
+		'from_to_list':"[['Sales Order','Sales Invoice'],['Sales Order Item','Sales Invoice Item'],['Sales Taxes and Charges','Sales Taxes and Charges'],['Sales Team','Sales Team']]"
+		}, function(r,rt) {
+			 loaddoc('Sales Invoice', n);
+		}
+	);
+}
+
 cur_frm.cscript['Stop Sales Order'] = function() {
 	var doc = cur_frm.doc;
 

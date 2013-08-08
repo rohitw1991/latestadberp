@@ -1,0 +1,32 @@
+[
+ {
+  "creation": "2013-08-07 12:22:33", 
+  "docstatus": 0, 
+  "modified": "2013-08-07 12:26:33", 
+  "modified_by": "Administrator", 
+  "owner": "Administrator"
+ }, 
+ {
+  "doctype": "Page", 
+  "module": "Selling", 
+  "name": "__common__", 
+  "page_name": "Dashboard", 
+  "standard": "Yes", 
+  "title": "Dashboard"
+ }, 
+ {
+  "doctype": "Page Role", 
+  "name": "__common__", 
+  "parent": "dashboard-1", 
+  "parentfield": "roles", 
+  "parenttype": "Page", 
+  "role": "Administrator"
+ }, 
+ {
+  "doctype": "Page", 
+  "name": "dashboard-1"
+ }, 
+ {
+  "doctype": "Page Role"
+ }
+]

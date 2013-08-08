@@ -1,6 +1,6 @@
 [
  {
-  "creation": "2013-03-07 11:42:58", 
+  "creation": "2013-06-06 11:54:44", 
   "docstatus": 0, 
   "modified": "2013-08-07 14:44:50", 
   "modified_by": "Administrator", 
@@ -144,6 +144,13 @@
   "width": "70px"
  }, 
  {
+  "doctype": "DocField", 
+  "fieldname": "total_volume_data", 
+  "fieldtype": "Float", 
+  "label": "Total Volume"
+ }, 
+ {
+  "default": "0.00", 
   "doctype": "DocField", 
   "fieldname": "export_rate", 
   "fieldtype": "Currency", 
