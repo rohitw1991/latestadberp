@@ -287,7 +287,6 @@ cur_frm.cscript['Make Material Request'] = function() {
 	}
 }
 
-
 cur_frm.cscript['Make Delivery Note'] = function() {
 	var doc = cur_frm.doc;
 	if (doc.docstatus == 1) { 
@@ -306,7 +305,6 @@ cur_frm.cscript['Make Delivery Note'] = function() {
 	}
 }
 
-
 cur_frm.cscript['Make Sales Invoice'] = function() {
 	var doc = cur_frm.doc;
 
@@ -323,7 +321,6 @@ cur_frm.cscript['Make Sales Invoice'] = function() {
 	);
 }
 
-
 cur_frm.cscript['Stop Sales Order'] = function() {
 	var doc = cur_frm.doc;
 
@@ -339,65 +336,6 @@ cur_frm.cscript['Stop Sales Order'] = function() {
 	}
 }
 
-/*cur_frm.cscript.qty=function(doc,cdt,cdn)
-{
-	var d=locals[cdt][cdn];
-	var r;
-	wn.call({
-    method:"webnotes.client.get_value",
-    args: {
-        doctype:"Item",
-        filters: {
-            name:d.item_code
-        },
-        fieldname:["item_volume"]
-        }, 
-           callback: function(r) { 
-           
-           d.item_volume =r.message.item_volume;
-
-	   refresh_field('item_volume');
-	   d.total=d.qty*d.item_volume;
-	   r=d.total;
-	  refresh_field('item_volume', cdn, 'sales_order_details');
-	  refresh_field('total', cdn, 'sales_order_details');
-        }
-       })
-	 refresh_field('total', cdn, 'sales_order_details');
-	 
-
-	
-}
-
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}
-
-
-
-cur_frm.cscript.sum_of_volume=function(doc,cdt,cdn){
-
-var other_fname	= cur_frm.cscript.other_fname;
-        var sum=0.00;
-	var cl = getchildren('Sales Order Item', doc.name, 'sales_order_details');
-	console.log(cl);
-	for(var i = 0; i<cl.length; i++){
-		if(cl[i].total!=null)
-		{
-		  sum=sum+cl[i].total;
-		  	
-		}
-		
-	}
-	doc.total_value=sum;
-	refresh_field('total_value');
-	
-}*/
 cur_frm.cscript['Unstop Sales Order'] = function() {
 	var doc = cur_frm.doc;
 

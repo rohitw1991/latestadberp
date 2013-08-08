@@ -296,38 +296,8 @@ cur_frm.cscript.item_code = function(doc, cdt, cdn) {
 			};
 			get_server_fields('get_item_details',JSON.stringify(args), 
 				fname,doc,cdt,cdn,1,callback);
-			
-			//d.qty=0.00
-			
 		}
 	}
-	/*if(d.item_code)
-	{
-		wn.call({
-    method:"webnotes.client.get_value",
-    args: {
-        doctype:"Item",
-        filters: {
-            name:d.item_code
-        },
-        fieldname:["item_volume"]
-        }, 
-           callback: function(r) { 
-           
-           d.item_volume =r.message.item_volume;
-
-	   refresh_field('item_volume');
-	   d.total=d.item_volume;
-	  refresh_field('item_volume', cdn, 'sales_order_details');
-	  refresh_field('total', cdn, 'sales_order_details');
-	  cur_frm.set_value(d.item_volume, r.message);
-	  cur_frm.set_value(d.total, r.message);
-        }
-       })
-	
-
-	}*/
-	
 	if(cur_frm.cscript.custom_item_code){
 		cur_frm.cscript.custom_item_code(doc, cdt, cdn);
 	}
