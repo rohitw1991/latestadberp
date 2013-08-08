@@ -238,7 +238,7 @@
  }, 
  {
   "doctype": "DocPerm", 
-  "role": "Accounts User"
+  "role": "Accounts User",
   "permlevel": 0, 
   "report": 1, 
   "role": "Material Manager", 
