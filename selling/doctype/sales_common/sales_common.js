@@ -656,4 +656,4 @@ var set_sales_bom_help = function(doc) {
 	}
 	refresh_field('sales_bom_help');
 }
-cur_frm.fields_dict.customer.get_query = erpnext.utils.customer_query;
+//cur_frm.fields_dict.customer.get_query = erpnext.utils.customer_query;
