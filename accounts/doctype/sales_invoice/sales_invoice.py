@@ -65,9 +65,6 @@ class DocType(SellingController):
 			self.validate_write_off_account()
 
 		if cint(self.doc.update_stock):
-			sl = get_obj('Stock Ledger')
-			sl.validate_serial_no(self, 'entries')
-			sl.validate_serial_no(self, 'packing_details')
 			self.validate_item_code()
 			self.update_current_stock()
 			self.validate_delivery_note()
@@ -84,15 +81,9 @@ class DocType(SellingController):
 			"delivery_note_details")
 
 	def on_submit(self):
-		if cint(self.doc.update_stock) == 1:
-			sl_obj = get_obj("Stock Ledger")
-			sl_obj.validate_serial_no_warehouse(self, 'entries')
-			sl_obj.validate_serial_no_warehouse(self, 'packing_details')
-			
-			sl_obj.update_serial_record(self, 'entries', is_submit = 1, is_incoming = 0)
-			sl_obj.update_serial_record(self, 'packing_details', is_submit = 1, is_incoming = 0)
-			
+		if cint(self.doc.update_stock) == 1:			
 			self.update_stock_ledger(update_stock=1)
+			self.update_serial_nos()
 		else:
 			# Check for Approving Authority
 			if not self.doc.recurring_id:
@@ -120,11 +111,8 @@ class DocType(SellingController):
 
 	def on_cancel(self):
 		if cint(self.doc.update_stock) == 1:
-			sl = get_obj('Stock Ledger')
-			sl.update_serial_record(self, 'entries', is_submit = 0, is_incoming = 0)
-			sl.update_serial_record(self, 'packing_details', is_submit = 0, is_incoming = 0)
-			
 			self.update_stock_ledger(update_stock = -1)
+			self.update_serial_nos(cancel = True)
 		
 		sales_com_obj = get_obj(dt = 'Sales Common')
 		sales_com_obj.check_stop_sales_order(self)
@@ -162,12 +150,22 @@ class DocType(SellingController):
 		
 	def set_missing_values(self, for_validate=False):
 		self.set_pos_fields(for_validate)
+		
+		if not self.doc.debit_to:
+			self.doc.debit_to = self.get_customer_account()
+		if not self.doc.due_date:
+			self.doc.due_date = self.get_due_date()
+		
 		super(DocType, self).set_missing_values(for_validate)
 		
 	def set_customer_defaults(self):
 		# TODO cleanup these methods
-		self.doc.fields.update(self.get_debit_to())
-		self.get_cust_and_due_date()
+		if self.doc.customer:
+			self.doc.debit_to = self.get_customer_account()
+		elif self.doc.debit_to:
+			self.doc.customer = webnotes.conn.get_value('Account', self.doc.debit_to, 'master_name')
+		
+		self.doc.due_date = self.get_due_date()
 		
 		super(DocType, self).set_customer_defaults()
 			
@@ -197,20 +195,12 @@ class DocType(SellingController):
 		if pos:
 			self.doc.conversion_rate = flt(pos.conversion_rate)
 			
-			if not self.doc.debit_to:
-				self.doc.debit_to = self.doc.customer and webnotes.conn.get_value("Account", {
-					"name": self.doc.customer + " - " + self.get_company_abbr(), 
-					"docstatus": ["!=", 2]
-				}) or pos.customer_account
-				
-			if self.doc.debit_to and not self.doc.customer:
-				self.doc.customer = webnotes.conn.get_value("Account", {
-					"name": self.doc.debit_to,
-					"master_type": "Customer"
-				}, "master_name")
-				
+			if not for_validate:
+				self.doc.customer = pos.customer
+				self.set_customer_defaults()
+
 			for fieldname in ('territory', 'naming_series', 'currency', 'charge', 'letter_head', 'tc_name',
-				'price_list_name', 'company', 'select_print_heading', 'cash_bank_account'):
+				'selling_price_list', 'company', 'select_print_heading', 'cash_bank_account'):
 					if (not for_validate) or (for_validate and not self.doc.fields.get(fieldname)):
 						self.doc.fields[fieldname] = pos.get(fieldname)
 						
@@ -251,27 +241,24 @@ class DocType(SellingController):
 					You must first create it from the Customer Master" % 
 					(self.doc.customer, self.doc.company))
 
-	def get_debit_to(self):
-		acc_head = self.get_customer_account()
-		return acc_head and {'debit_to' : acc_head} or {}
-
-
-	def get_cust_and_due_date(self):
+	def get_due_date(self):
 		"""Set Due Date = Posting Date + Credit Days"""
+		due_date = None
 		if self.doc.posting_date:
 			credit_days = 0
 			if self.doc.debit_to:
 				credit_days = webnotes.conn.get_value("Account", self.doc.debit_to, "credit_days")
+			if self.doc.customer and not credit_days:
+				credit_days = webnotes.conn.get_value("Customer", self.doc.customer, "credit_days")
 			if self.doc.company and not credit_days:
 				credit_days = webnotes.conn.get_value("Company", self.doc.company, "credit_days")
 				
 			if credit_days:
-				self.doc.due_date = add_days(self.doc.posting_date, credit_days)
+				due_date = add_days(self.doc.posting_date, credit_days)
 			else:
-				self.doc.due_date = self.doc.posting_date
-		
-		if self.doc.debit_to:
-			self.doc.customer = webnotes.conn.get_value('Account',self.doc.debit_to,'master_name')
+				due_date = self.doc.posting_date
+
+		return due_date
 
 	def get_barcode_details(self, barcode):
 		return get_obj('Sales Common').get_barcode_details(barcode)
@@ -495,10 +482,6 @@ class DocType(SellingController):
 	
 	def make_packing_list(self):
 		get_obj('Sales Common').make_packing_list(self,'entries')
-		sl = get_obj('Stock Ledger')
-		sl.scrub_serial_nos(self)
-		sl.scrub_serial_nos(self, 'packing_details')
-
 
 	def on_update(self):
 		if cint(self.doc.update_stock) == 1:
@@ -510,18 +493,20 @@ class DocType(SellingController):
 						if not d.warehouse:
 							d.warehouse = cstr(w)
 
-				if flt(self.doc.paid_amount) == 0:
-					if self.doc.cash_bank_account: 
-						webnotes.conn.set(self.doc, 'paid_amount', 
-							(flt(self.doc.grand_total) - flt(self.doc.write_off_amount)))
-					else:
-						# show message that the amount is not paid
-						webnotes.conn.set(self.doc,'paid_amount',0)
-						webnotes.msgprint("Note: Payment Entry will not be created since 'Cash/Bank Account' was not specified.")
-
 			self.make_packing_list()
 		else:
 			self.doclist = self.doc.clear_table(self.doclist, 'packing_details')
+			
+		if cint(self.doc.is_pos) == 1:
+			if flt(self.doc.paid_amount) == 0:
+				if self.doc.cash_bank_account: 
+					webnotes.conn.set(self.doc, 'paid_amount', 
+						(flt(self.doc.grand_total) - flt(self.doc.write_off_amount)))
+				else:
+					# show message that the amount is not paid
+					webnotes.conn.set(self.doc,'paid_amount',0)
+					webnotes.msgprint("Note: Payment Entry will not be created since 'Cash/Bank Account' was not specified.")
+		else:
 			webnotes.conn.set(self.doc,'paid_amount',0)
 		
 	def check_prev_docstatus(self):
