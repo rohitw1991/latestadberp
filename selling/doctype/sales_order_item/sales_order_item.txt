@@ -2,7 +2,7 @@
  {
   "creation": "2013-06-06 11:54:44", 
   "docstatus": 0, 
-  "modified": "2013-08-07 14:44:50", 
+  "modified": "2013-08-22 15:43:07", 
   "modified_by": "Administrator", 
   "owner": "Administrator"
  }, 
@@ -237,7 +237,7 @@
   "fieldtype": "Link", 
   "in_list_view": 0, 
   "label": "Reserved Warehouse", 
-  "no_copy": 1, 
+  "no_copy": 0, 
   "oldfieldname": "reserved_warehouse", 
   "oldfieldtype": "Link", 
   "options": "Warehouse", 
