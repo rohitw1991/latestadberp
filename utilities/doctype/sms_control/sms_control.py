@@ -21,7 +21,7 @@ class DocType:
 		validated_receiver_list = []
 		i=1
 		for d in receiver_list:
-                        while i<len(receiver_list):
+                        if(i!=len(receiver_list)):
                           a=cstr(d).split('-')
                           i=i+1
                           validated_receiver_list.append(a[1])
