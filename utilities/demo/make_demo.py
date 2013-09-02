@@ -29,7 +29,7 @@ prob = {
 	"Purchase Receipt": { "make": 0.7, "qty": (1,15) },
 }
 
-def make(reset=False):
+def make(reset=False, simulate=True):
 	webnotes.connect()
 	#webnotes.print_messages = True
 	webnotes.mute_emails = True
@@ -37,7 +37,8 @@ def make(reset=False):
 	
 	if reset:
 		setup()
-	simulate()
+	if simulate:
+		simulate()
 	
 def setup():
 	install()
@@ -406,7 +407,7 @@ def import_data(dt, submit=False):
 	
 	for doctype in dt:
 		print "Importing", doctype.replace("_", " "), "..."
-		webnotes.form_dict = {}
+		webnotes.form_dict = webnotes._dict()
 		if submit:
 			webnotes.form_dict["params"] = json.dumps({"_submit": 1})
 		webnotes.uploaded_file = os.path.join(os.path.dirname(__file__), "demo_docs", doctype+".csv")
