@@ -15,15 +15,14 @@ erpnext.toolbar.setup = function() {
 	$user.append('<li><a href="http://groups.google.com/group/erpnext-user-forum" target="_blank">\
 		<i class="icon-fixed-width icon-quote-left"></i> '+wn._('Forum')+'</a></li>');
 	
-	//if(wn.boot.expires_on) {
+	if(wn.boot.expires_on) {
 		$user.append('<li><a href="http://www.providesupport.com?messenger=iwebnotes" target="_blank">\
 			<i class="icon-fixed-width icon-comments"></i> '+wn._('Live Chat')+'</a></li>');
-	//}
+	}
 	
-	erpnext.toolbar.set_new_comments();
-
 	$("#toolbar-tools").append('<li><a href="#latest-updates">\
 		<i class="icon-fixed-width icon-rss"></i> Latest Updates</li>');
+<<<<<<< HEAD
 }
 
 erpnext.toolbar.set_new_comments = function(new_comments) {
@@ -37,3 +36,6 @@ erpnext.toolbar.set_new_comments = function(new_comments) {
 		navbar_nc.text(0);
 	}
 }
+=======
+}
+>>>>>>> 2e131e26d42ddb8623643e474f460f9c521d112d

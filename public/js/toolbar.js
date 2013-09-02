@@ -20,8 +20,6 @@ erpnext.toolbar.setup = function() {
 			<i class="icon-fixed-width icon-comments"></i> '+wn._('Live Chat')+'</a></li>');
 	}
 	
-	erpnext.toolbar.set_new_comments();
-
 	$("#toolbar-tools").append('<li><a href="#latest-updates">\
 		<i class="icon-fixed-width icon-rss"></i> Latest Updates</li>');
 }
